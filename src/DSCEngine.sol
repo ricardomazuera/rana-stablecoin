@@ -223,7 +223,7 @@ contract DSCEngine is ReentrancyGuard {
         revertIfHealthFactorIsBroken(msg.sender);
         bool minted = i_rana.mint(msg.sender, amountDscToMint);
 
-        if (minted != true) {
+        if (!minted) {
             revert DSCEngine__MintFailed();
         }
     }
